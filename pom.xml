@@ -16,6 +16,9 @@
 
 	<properties>
 		<java.version>11</java.version>
+		<start-class>
+			com.toomuch2learn.reactive.nativebuild.catalogue.crud.SpringReactiveNativeCatalogueCrudApplication
+		</start-class>
 	</properties>
 
 	<dependencies>
@@ -35,18 +38,24 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
+			<scope>provided</scope>
 			<optional>true</optional>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
+			<scope>compile</scope>
 			<optional>true</optional>
 		</dependency>
 		<dependency>
 			<groupId>org.yaml</groupId>
 			<artifactId>snakeyaml</artifactId>
 			<version>1.25</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.experimental</groupId>
+			<artifactId>spring-graalvm-native</artifactId>
+			<version>0.8.0</version>
 		</dependency>
 
 		<dependency>
@@ -84,5 +93,59 @@
 			<url>https://repo.spring.io/milestone</url>
 		</pluginRepository>
 	</pluginRepositories>
+
+	<profiles>
+		<profile>
+			<id>graal</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.graalvm.nativeimage</groupId>
+						<artifactId>native-image-maven-plugin</artifactId>
+						<version>20.2.0</version>
+						<configuration>
+							<buildArgs>
+								-Dspring.native.verify=true
+								-Dspring.graal.mode=initialization-only
+								-Dspring.graal.dump-config=/tmp/computed-reflect-config.json
+								-Dspring.graal.verbose=true
+								-Dspring.graal.skip-logback=true
+								--initialize-at-run-time=org.springframework.data.r2dbc.connectionfactory.ConnectionFactoryUtils
+								--initialize-at-build-time=io.r2dbc.spi.IsolationLevel,io.r2dbc.spi
+								--initialize-at-build-time=io.r2dbc.spi.ConstantPool,io.r2dbc.spi.Assert,io.r2dbc.spi.ValidationDepth
+								--initialize-at-build-time=org.springframework.data.r2dbc.connectionfactory
+								-H:+TraceClassInitialization
+								--no-fallback
+								--allow-incomplete-classpath
+								--report-unsupported-elements-at-runtime
+								-H:+ReportExceptionStackTraces
+								--no-server
+								--initialize-at-build-time=org.reactivestreams.Publisher
+								--initialize-at-build-time=com.toomuch2learn.reactive.nativebuild.catalogue.crud.SpringReactiveNativeCatalogueCrudApplication
+								--initialize-at-run-time=io.netty.channel.unix.Socket
+								--initialize-at-run-time=io.netty.channel.unix.IovArray
+								--initialize-at-run-time=io.netty.channel.epoll.EpollEventLoop
+								--initialize-at-run-time=io.netty.channel.unix.Errors
+								--initialize-at-build-time=javax.el.MapELResolver
+								--initialize-at-build-time=javax.el.ListELResolver
+							</buildArgs>
+						</configuration>
+						<executions>
+							<execution>
+								<goals>
+									<goal>native-image</goal>
+								</goals>
+								<phase>package</phase>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.springframework.boot</groupId>
+						<artifactId>spring-boot-maven-plugin</artifactId>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
 </project>
