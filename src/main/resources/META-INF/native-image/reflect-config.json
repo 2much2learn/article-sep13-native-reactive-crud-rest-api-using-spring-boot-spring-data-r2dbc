@@ -92,6 +92,10 @@
   "name":"com.fasterxml.jackson.databind.deser.ValueInstantiators[]"
 },
 {
+  "name":"com.fasterxml.jackson.databind.ext.Java7HandlersImpl",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
   "name":"com.fasterxml.jackson.databind.ext.Java7SupportImpl",
   "methods":[{"name":"<init>","parameterTypes":[] }]
 },
@@ -192,6 +196,34 @@
   "allDeclaredFields":true,
   "allDeclaredMethods":true,
   "allDeclaredConstructors":true
+},
+{
+  "name":"com.toomuch2learn.reactive.nativebuild.catalogue.crud.model.CatalogueItem",
+  "allDeclaredFields":true,
+  "allDeclaredMethods":true,
+  "allDeclaredConstructors":true
+},
+{
+  "name":"com.toomuch2learn.reactive.nativebuild.catalogue.crud.model.ResourceIdentity",
+  "allDeclaredFields":true,
+  "allDeclaredMethods":true,
+  "allDeclaredConstructors":true
+},
+{
+  "name":"com.toomuch2learn.reactive.nativebuild.catalogue.crud.validation.EnumValidator",
+  "allDeclaredFields":true,
+  "allDeclaredMethods":true,
+  "allDeclaredConstructors":true,
+  "methods":[{"name":"initialize","parameterTypes":["java.lang.annotation.Annotation"] }]
+},
+{
+  "name":"com.toomuch2learn.reactive.nativebuild.catalogue.crud.validation.IEnumValidator",
+  "allDeclaredMethods":true,
+  "methods":[
+    {"name":"groups","parameterTypes":[] }, 
+    {"name":"message","parameterTypes":[] }, 
+    {"name":"payload","parameterTypes":[] }
+  ]
 },
 {
   "name":"io.micrometer.core.annotation.Timed"
@@ -353,10 +385,26 @@
   "allDeclaredMethods":true
 },
 {
+  "name":"io.netty.buffer.AbstractReferenceCountedByteBuf",
+  "fields":[{"name":"refCnt", "allowUnsafeAccess":true}]
+},
+{
   "name":"io.netty.buffer.ByteBuf"
 },
 {
   "name":"io.netty.buffer.PooledByteBufAllocator"
+},
+{
+  "name":"io.netty.channel.ChannelDuplexHandler",
+  "methods":[
+    {"name":"bind","parameterTypes":["io.netty.channel.ChannelHandlerContext","java.net.SocketAddress","io.netty.channel.ChannelPromise"] }, 
+    {"name":"close","parameterTypes":["io.netty.channel.ChannelHandlerContext","io.netty.channel.ChannelPromise"] }, 
+    {"name":"connect","parameterTypes":["io.netty.channel.ChannelHandlerContext","java.net.SocketAddress","java.net.SocketAddress","io.netty.channel.ChannelPromise"] }, 
+    {"name":"deregister","parameterTypes":["io.netty.channel.ChannelHandlerContext","io.netty.channel.ChannelPromise"] }, 
+    {"name":"disconnect","parameterTypes":["io.netty.channel.ChannelHandlerContext","io.netty.channel.ChannelPromise"] }, 
+    {"name":"flush","parameterTypes":["io.netty.channel.ChannelHandlerContext"] }, 
+    {"name":"read","parameterTypes":["io.netty.channel.ChannelHandlerContext"] }
+  ]
 },
 {
   "name":"io.netty.channel.ChannelInboundHandlerAdapter",
@@ -368,6 +416,7 @@
     {"name":"channelRegistered","parameterTypes":["io.netty.channel.ChannelHandlerContext"] }, 
     {"name":"channelUnregistered","parameterTypes":["io.netty.channel.ChannelHandlerContext"] }, 
     {"name":"channelWritabilityChanged","parameterTypes":["io.netty.channel.ChannelHandlerContext"] }, 
+    {"name":"exceptionCaught","parameterTypes":["io.netty.channel.ChannelHandlerContext","java.lang.Throwable"] }, 
     {"name":"userEventTriggered","parameterTypes":["io.netty.channel.ChannelHandlerContext","java.lang.Object"] }
   ]
 },
@@ -376,6 +425,28 @@
   "methods":[
     {"name":"channelRegistered","parameterTypes":["io.netty.channel.ChannelHandlerContext"] }, 
     {"name":"exceptionCaught","parameterTypes":["io.netty.channel.ChannelHandlerContext","java.lang.Throwable"] }
+  ]
+},
+{
+  "name":"io.netty.channel.CombinedChannelDuplexHandler",
+  "methods":[
+    {"name":"bind","parameterTypes":["io.netty.channel.ChannelHandlerContext","java.net.SocketAddress","io.netty.channel.ChannelPromise"] }, 
+    {"name":"channelActive","parameterTypes":["io.netty.channel.ChannelHandlerContext"] }, 
+    {"name":"channelInactive","parameterTypes":["io.netty.channel.ChannelHandlerContext"] }, 
+    {"name":"channelRead","parameterTypes":["io.netty.channel.ChannelHandlerContext","java.lang.Object"] }, 
+    {"name":"channelReadComplete","parameterTypes":["io.netty.channel.ChannelHandlerContext"] }, 
+    {"name":"channelRegistered","parameterTypes":["io.netty.channel.ChannelHandlerContext"] }, 
+    {"name":"channelUnregistered","parameterTypes":["io.netty.channel.ChannelHandlerContext"] }, 
+    {"name":"channelWritabilityChanged","parameterTypes":["io.netty.channel.ChannelHandlerContext"] }, 
+    {"name":"close","parameterTypes":["io.netty.channel.ChannelHandlerContext","io.netty.channel.ChannelPromise"] }, 
+    {"name":"connect","parameterTypes":["io.netty.channel.ChannelHandlerContext","java.net.SocketAddress","java.net.SocketAddress","io.netty.channel.ChannelPromise"] }, 
+    {"name":"deregister","parameterTypes":["io.netty.channel.ChannelHandlerContext","io.netty.channel.ChannelPromise"] }, 
+    {"name":"disconnect","parameterTypes":["io.netty.channel.ChannelHandlerContext","io.netty.channel.ChannelPromise"] }, 
+    {"name":"exceptionCaught","parameterTypes":["io.netty.channel.ChannelHandlerContext","java.lang.Throwable"] }, 
+    {"name":"flush","parameterTypes":["io.netty.channel.ChannelHandlerContext"] }, 
+    {"name":"read","parameterTypes":["io.netty.channel.ChannelHandlerContext"] }, 
+    {"name":"userEventTriggered","parameterTypes":["io.netty.channel.ChannelHandlerContext","java.lang.Object"] }, 
+    {"name":"write","parameterTypes":["io.netty.channel.ChannelHandlerContext","java.lang.Object","io.netty.channel.ChannelPromise"] }
   ]
 },
 {
@@ -422,6 +493,10 @@
   "fields":[{"name":"refCnt", "allowUnsafeAccess":true}]
 },
 {
+  "name":"io.netty.util.ReferenceCountUtil",
+  "allDeclaredMethods":true
+},
+{
   "name":"io.netty.util.internal.NativeLibraryUtil",
   "methods":[{"name":"loadLibrary","parameterTypes":["java.lang.String","boolean"] }]
 },
@@ -436,6 +511,18 @@
 {
   "name":"io.netty.util.internal.shaded.org.jctools.queues.BaseMpscLinkedArrayQueueProducerFields",
   "fields":[{"name":"producerIndex", "allowUnsafeAccess":true}]
+},
+{
+  "name":"io.netty.util.internal.shaded.org.jctools.queues.MpscArrayQueueConsumerIndexField",
+  "fields":[{"name":"consumerIndex", "allowUnsafeAccess":true}]
+},
+{
+  "name":"io.netty.util.internal.shaded.org.jctools.queues.MpscArrayQueueProducerIndexField",
+  "fields":[{"name":"producerIndex", "allowUnsafeAccess":true}]
+},
+{
+  "name":"io.netty.util.internal.shaded.org.jctools.queues.MpscArrayQueueProducerLimitField",
+  "fields":[{"name":"producerLimit", "allowUnsafeAccess":true}]
 },
 {
   "name":"java.beans.PropertyVetoException"
@@ -534,6 +621,9 @@
 {
   "name":"java.lang.Void",
   "fields":[{"name":"TYPE"}]
+},
+{
+  "name":"java.lang.annotation.Annotation[]"
 },
 {
   "name":"java.lang.annotation.Documented",
@@ -668,6 +758,15 @@
   "allDeclaredMethods":true
 },
 {
+  "name":"javax.validation.ConstraintValidator",
+  "allPublicMethods":true,
+  "methods":[{"name":"initialize","parameterTypes":["java.lang.annotation.Annotation"] }]
+},
+{
+  "name":"javax.validation.Valid",
+  "allDeclaredMethods":true
+},
+{
   "name":"javax.validation.Validator",
   "allDeclaredMethods":true,
   "allPublicMethods":true
@@ -678,6 +777,14 @@
 },
 {
   "name":"javax.validation.bootstrap.GenericBootstrap"
+},
+{
+  "name":"javax.validation.constraints.NotEmpty",
+  "allDeclaredMethods":true
+},
+{
+  "name":"javax.validation.constraints.NotNull",
+  "allDeclaredMethods":true
 },
 {
   "name":"javax.validation.executable.ExecutableValidator"
@@ -712,6 +819,18 @@
 },
 {
   "name":"org.apache.logging.slf4j.SLF4JProvider"
+},
+{
+  "name":"org.hibernate.validator.internal.constraintvalidators.bv.NotNullValidator",
+  "allDeclaredFields":true,
+  "allDeclaredMethods":true,
+  "allDeclaredConstructors":true
+},
+{
+  "name":"org.hibernate.validator.internal.constraintvalidators.bv.notempty.NotEmptyValidatorForCharSequence",
+  "allDeclaredFields":true,
+  "allDeclaredMethods":true,
+  "allDeclaredConstructors":true
 },
 {
   "name":"org.hibernate.validator.internal.engine.AbstractConfigurationImpl",
@@ -1649,8 +1768,7 @@
 },
 {
   "name":"org.springframework.boot.actuate.web.mappings.MappingDescriptionProvider",
-  "allPublicMethods":true,
-  "methods":[{"name":"describeMappings","parameterTypes":["org.springframework.context.ApplicationContext"] }]
+  "allPublicMethods":true
 },
 {
   "name":"org.springframework.boot.actuate.web.mappings.MappingsEndpoint"
@@ -1878,7 +1996,7 @@
   "allDeclaredConstructors":true
 },
 {
-  "name":"org.springframework.boot.autoconfigure.http.codec.CodecsAutoConfiguration$DefaultCodecsConfiguration$$Lambda$413/0x00000008403c8840",
+  "name":"org.springframework.boot.autoconfigure.http.codec.CodecsAutoConfiguration$DefaultCodecsConfiguration$$Lambda$414/0x00000008403c8c40",
   "allDeclaredFields":true,
   "allDeclaredMethods":true
 },
@@ -1889,7 +2007,7 @@
   "allDeclaredConstructors":true
 },
 {
-  "name":"org.springframework.boot.autoconfigure.http.codec.CodecsAutoConfiguration$JacksonCodecConfiguration$$Lambda$414/0x00000008403c9c40",
+  "name":"org.springframework.boot.autoconfigure.http.codec.CodecsAutoConfiguration$JacksonCodecConfiguration$$Lambda$415/0x00000008403ca040",
   "allDeclaredFields":true,
   "allDeclaredMethods":true
 },
@@ -2734,6 +2852,9 @@
   "allDeclaredMethods":true
 },
 {
+  "name":"org.springframework.core.annotation.TypeMappedAnnotation[]"
+},
+{
   "name":"org.springframework.core.convert.support.ConfigurableConversionService",
   "allPublicMethods":true
 },
@@ -2783,6 +2904,34 @@
     {"name":"addPrinter","parameterTypes":["org.springframework.format.Printer"] }, 
     {"name":"setEmbeddedValueResolver","parameterTypes":["org.springframework.util.StringValueResolver"] }
   ]
+},
+{
+  "name":"org.springframework.graalvm.extension.FieldInfo",
+  "allDeclaredMethods":true
+},
+{
+  "name":"org.springframework.graalvm.extension.InitializationInfo",
+  "allDeclaredMethods":true
+},
+{
+  "name":"org.springframework.graalvm.extension.MethodInfo",
+  "allDeclaredMethods":true
+},
+{
+  "name":"org.springframework.graalvm.extension.NativeImageHint",
+  "allDeclaredMethods":true
+},
+{
+  "name":"org.springframework.graalvm.extension.ProxyInfo",
+  "allDeclaredMethods":true
+},
+{
+  "name":"org.springframework.graalvm.extension.ResourcesInfo",
+  "allDeclaredMethods":true
+},
+{
+  "name":"org.springframework.graalvm.extension.TypeInfo",
+  "allDeclaredMethods":true
 },
 {
   "name":"org.springframework.http.HttpStatus"
@@ -2924,6 +3073,10 @@
   "allDeclaredMethods":true
 },
 {
+  "name":"org.springframework.web.bind.annotation.RequestBody",
+  "allDeclaredMethods":true
+},
+{
   "name":"org.springframework.web.bind.annotation.RequestMapping",
   "allDeclaredMethods":true
 },
@@ -2976,7 +3129,7 @@
   "name":"org.springframework.web.reactive.accept.RequestedContentTypeResolverBuilder"
 },
 {
-  "name":"org.springframework.web.reactive.accept.RequestedContentTypeResolverBuilder$$Lambda$460/0x00000008403e3440",
+  "name":"org.springframework.web.reactive.accept.RequestedContentTypeResolverBuilder$$Lambda$461/0x00000008403eb040",
   "allDeclaredFields":true,
   "allDeclaredMethods":true
 },
@@ -3222,10 +3375,26 @@
   "name":"reactor.core.publisher.Mono"
 },
 {
+  "name":"reactor.netty.channel.ChannelOperationsHandler",
+  "methods":[
+    {"name":"channelActive","parameterTypes":["io.netty.channel.ChannelHandlerContext"] }, 
+    {"name":"channelInactive","parameterTypes":["io.netty.channel.ChannelHandlerContext"] }, 
+    {"name":"channelRead","parameterTypes":["io.netty.channel.ChannelHandlerContext","java.lang.Object"] }, 
+    {"name":"exceptionCaught","parameterTypes":["io.netty.channel.ChannelHandlerContext","java.lang.Throwable"] }
+  ]
+},
+{
   "name":"reactor.netty.http.client.HttpClient"
 },
 {
   "name":"reactor.netty.http.server.HttpServer"
+},
+{
+  "name":"reactor.netty.http.server.HttpTrafficHandler",
+  "methods":[
+    {"name":"channelRead","parameterTypes":["io.netty.channel.ChannelHandlerContext","java.lang.Object"] }, 
+    {"name":"write","parameterTypes":["io.netty.channel.ChannelHandlerContext","java.lang.Object","io.netty.channel.ChannelPromise"] }
+  ]
 },
 {
   "name":"reactor.netty.transport.ServerTransport$Acceptor",
