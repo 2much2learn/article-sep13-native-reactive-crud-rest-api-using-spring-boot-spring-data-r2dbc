@@ -1,4 +1,4 @@
-package com.toomuch2learn.reactive.nativecrud.catalogue;
+package com.toomuch2learn.reactive.nativebuild.catalogue.crud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
