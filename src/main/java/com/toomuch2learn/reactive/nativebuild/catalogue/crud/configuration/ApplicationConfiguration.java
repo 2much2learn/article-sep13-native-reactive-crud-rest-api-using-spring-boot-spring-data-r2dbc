@@ -37,7 +37,6 @@ public class ApplicationConfiguration {
 
         initializer.setDatabasePopulator(populator);
 
-        System.out.println("=====> Database initialized with populator");
         return initializer;
     }
 }

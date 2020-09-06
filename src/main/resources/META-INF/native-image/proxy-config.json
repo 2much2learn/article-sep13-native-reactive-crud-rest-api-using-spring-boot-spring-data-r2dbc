@@ -10,5 +10,6 @@
   ["org.springframework.web.bind.annotation.ControllerAdvice","org.springframework.core.annotation.SynthesizedAnnotation"],
   ["org.springframework.web.bind.annotation.PathVariable","org.springframework.core.annotation.SynthesizedAnnotation"],
   ["org.springframework.web.bind.annotation.RequestMapping","org.springframework.core.annotation.SynthesizedAnnotation"],
+  ["org.springframework.web.bind.annotation.RequestPart","org.springframework.core.annotation.SynthesizedAnnotation"],
   ["org.springframework.web.bind.annotation.ResponseStatus","org.springframework.core.annotation.SynthesizedAnnotation"]
 ]

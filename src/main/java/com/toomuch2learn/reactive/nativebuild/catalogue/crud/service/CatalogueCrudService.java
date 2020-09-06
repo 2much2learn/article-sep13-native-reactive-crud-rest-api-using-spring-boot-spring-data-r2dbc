@@ -1,6 +1,5 @@
 package com.toomuch2learn.reactive.nativebuild.catalogue.crud.service;
 
-import com.toomuch2learn.reactive.nativebuild.catalogue.crud.CatalogueItemGenerator;
 import com.toomuch2learn.reactive.nativebuild.catalogue.crud.event.CatalogueItemEvent;
 import com.toomuch2learn.reactive.nativebuild.catalogue.crud.exception.ResourceNotFoundException;
 import com.toomuch2learn.reactive.nativebuild.catalogue.crud.model.CatalogueItem;
@@ -45,19 +44,42 @@ public class CatalogueCrudService {
     public Mono<Long> addCatalogItem(CatalogueItem catalogueItem) {
         catalogueItem.setCreatedOn(Instant.now());
 
-        return Mono.just(10L);
+        return
+            catalogueRepository
+                .save(catalogueItem)
+                .doOnSuccess(item -> publishCatalogueItemEvent(CatalogueItemEvent.CATALOGUEITEM_CREATED, item))
+                .flatMap(item -> Mono.just(item.getId()));
     }
 
     public void updateCatalogueItem(CatalogueItem catalogueItem) throws ResourceNotFoundException{
-        // Do Nothing
+
+        Mono<CatalogueItem> catalogueItemfromDB = getCatalogueItemBySku(catalogueItem.getSku());
+
+        catalogueItemfromDB.subscribe(
+            value -> {
+                value.setName(catalogueItem.getName());
+                value.setDescription(catalogueItem.getDescription());
+                value.setPrice(catalogueItem.getPrice());
+                value.setInventory(catalogueItem.getInventory());
+                value.setUpdatedOn(Instant.now());
+
+                catalogueRepository
+                    .save(value)
+                    .doOnSuccess(item -> publishCatalogueItemEvent(CatalogueItemEvent.CATALOGUEITEM_UPDATED, item))
+                    .subscribe();
+            });
     }
 
     public void deleteCatalogueItem(CatalogueItem catalogueItem) {
-        // Do Nothing
+
+        // For delete to work as expected, we need to subscribe() for the flow to complete
+        catalogueRepository.delete(catalogueItem).subscribe();
     }
 
     private Mono<CatalogueItem> getCatalogueItemBySku(String skuNumber) throws ResourceNotFoundException {
-        return Mono.just(CatalogueItemGenerator.generateCatalogueItem());
+        return catalogueRepository.findBySku(skuNumber)
+            .switchIfEmpty(Mono.defer(() -> Mono.error(new ResourceNotFoundException(
+                String.format("Catalogue Item not found for the provided SKU :: %s" , skuNumber)))));
     }
 
     private final void publishCatalogueItemEvent(String eventType, CatalogueItem item) {

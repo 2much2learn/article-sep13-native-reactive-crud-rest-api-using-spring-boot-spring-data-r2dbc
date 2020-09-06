@@ -49,3 +49,7 @@ spring:
     username: sa
     password:
     initialization-mode: always
+
+# Custom Configurations
+file:
+  upload-location: /tmp

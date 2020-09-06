@@ -43,6 +43,15 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-r2dbc</artifactId>
 		</dependency>
+
+		<!--
+			https://stackoverflow.com/questions/62358435/graalvm-native-image-for-springboot-fat-jar-throws-nosuchmethodexception-xxx-in
+			https://stackoverflow.com/questions/50911552/graalvm-and-spring-applications/61680146#61680146
+		-->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-indexer</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>io.r2dbc</groupId>
 			<artifactId>r2dbc-spi</artifactId>
