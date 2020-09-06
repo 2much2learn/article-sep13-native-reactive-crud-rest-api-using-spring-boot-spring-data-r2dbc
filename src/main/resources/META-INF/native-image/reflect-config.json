@@ -198,13 +198,54 @@
   "allDeclaredConstructors":true
 },
 {
-  "name":"com.toomuch2learn.reactive.nativebuild.catalogue.crud.model.CatalogueItem",
+  "name":"com.toomuch2learn.reactive.nativebuild.catalogue.crud.event.CatalogueItemEventPublisher",
+  "allDeclaredFields":true,
+  "allDeclaredMethods":true,
+  "allDeclaredConstructors":true,
+  "methods":[
+    {"name":"accept","parameterTypes":["java.lang.Object"] }, 
+    {"name":"onApplicationEvent","parameterTypes":["org.springframework.context.ApplicationEvent"] }
+  ]
+},
+{
+  "name":"com.toomuch2learn.reactive.nativebuild.catalogue.crud.exception.Error",
   "allDeclaredFields":true,
   "allDeclaredMethods":true,
   "allDeclaredConstructors":true
 },
 {
+  "name":"com.toomuch2learn.reactive.nativebuild.catalogue.crud.exception.ErrorResponse",
+  "allDeclaredFields":true,
+  "allDeclaredMethods":true,
+  "allDeclaredConstructors":true
+},
+{
+  "name":"com.toomuch2learn.reactive.nativebuild.catalogue.crud.exception.ExceptionHandlerController",
+  "allDeclaredFields":true,
+  "allDeclaredMethods":true,
+  "allDeclaredConstructors":true
+},
+{
+  "name":"com.toomuch2learn.reactive.nativebuild.catalogue.crud.model.CatalogueItem",
+  "allDeclaredFields":true,
+  "allDeclaredMethods":true,
+  "allPublicMethods":true,
+  "allDeclaredConstructors":true
+},
+{
   "name":"com.toomuch2learn.reactive.nativebuild.catalogue.crud.model.ResourceIdentity",
+  "allDeclaredFields":true,
+  "allDeclaredMethods":true,
+  "allDeclaredConstructors":true
+},
+{
+  "name":"com.toomuch2learn.reactive.nativebuild.catalogue.crud.repository.CatalogueRepository",
+  "allDeclaredFields":true,
+  "allDeclaredMethods":true,
+  "allDeclaredConstructors":true
+},
+{
+  "name":"com.toomuch2learn.reactive.nativebuild.catalogue.crud.service.CatalogueCrudService",
   "allDeclaredFields":true,
   "allDeclaredMethods":true,
   "allDeclaredConstructors":true
@@ -395,6 +436,9 @@
   "name":"io.netty.buffer.PooledByteBufAllocator"
 },
 {
+  "name":"io.netty.channel.AbstractChannelHandlerContext"
+},
+{
   "name":"io.netty.channel.ChannelDuplexHandler",
   "methods":[
     {"name":"bind","parameterTypes":["io.netty.channel.ChannelHandlerContext","java.net.SocketAddress","io.netty.channel.ChannelPromise"] }, 
@@ -440,6 +484,7 @@
     {"name":"channelWritabilityChanged","parameterTypes":["io.netty.channel.ChannelHandlerContext"] }, 
     {"name":"close","parameterTypes":["io.netty.channel.ChannelHandlerContext","io.netty.channel.ChannelPromise"] }, 
     {"name":"connect","parameterTypes":["io.netty.channel.ChannelHandlerContext","java.net.SocketAddress","java.net.SocketAddress","io.netty.channel.ChannelPromise"] }, 
+    {"name":"connect","parameterTypes":["io.netty.channel.ChannelHandlerContext","java.net.SocketAddress","java.net.SocketAddress","io.netty.channel.ChannelPromise"] }, 
     {"name":"deregister","parameterTypes":["io.netty.channel.ChannelHandlerContext","io.netty.channel.ChannelPromise"] }, 
     {"name":"disconnect","parameterTypes":["io.netty.channel.ChannelHandlerContext","io.netty.channel.ChannelPromise"] }, 
     {"name":"exceptionCaught","parameterTypes":["io.netty.channel.ChannelHandlerContext","java.lang.Throwable"] }, 
@@ -448,6 +493,12 @@
     {"name":"userEventTriggered","parameterTypes":["io.netty.channel.ChannelHandlerContext","java.lang.Object"] }, 
     {"name":"write","parameterTypes":["io.netty.channel.ChannelHandlerContext","java.lang.Object","io.netty.channel.ChannelPromise"] }
   ]
+},
+{
+  "name":"io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext"
+},
+{
+  "name":"io.netty.channel.DefaultChannelPipeline"
 },
 {
   "name":"io.netty.channel.DefaultChannelPipeline$HeadContext",
@@ -486,7 +537,16 @@
   ]
 },
 {
+  "name":"io.netty.channel.epoll.AbstractEpollStreamChannel$EpollStreamUnsafe"
+},
+{
   "name":"io.netty.channel.epoll.Epoll"
+},
+{
+  "name":"io.netty.channel.epoll.EpollEventLoop"
+},
+{
+  "name":"io.netty.handler.codec.ByteToMessageDecoder"
 },
 {
   "name":"io.netty.util.AbstractReferenceCounted",
@@ -497,8 +557,17 @@
   "allDeclaredMethods":true
 },
 {
+  "name":"io.netty.util.concurrent.FastThreadLocalRunnable"
+},
+{
+  "name":"io.netty.util.concurrent.SingleThreadEventExecutor$4"
+},
+{
   "name":"io.netty.util.internal.NativeLibraryUtil",
   "methods":[{"name":"loadLibrary","parameterTypes":["java.lang.String","boolean"] }]
+},
+{
+  "name":"io.netty.util.internal.ThreadExecutorMap$2"
 },
 {
   "name":"io.netty.util.internal.shaded.org.jctools.queues.BaseMpscLinkedArrayQueueColdProducerFields",
@@ -562,7 +631,14 @@
   "name":"java.lang.Class[]"
 },
 {
+  "name":"java.lang.Comparable",
+  "allDeclaredMethods":true
+},
+{
   "name":"java.lang.Double",
+  "allDeclaredFields":true,
+  "allDeclaredMethods":true,
+  "allDeclaredConstructors":true,
   "fields":[{"name":"TYPE"}]
 },
 {
@@ -585,6 +661,11 @@
   "name":"java.lang.Module",
   "allDeclaredMethods":true,
   "methods":[{"name":"isNamed","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.Number",
+  "allDeclaredFields":true,
+  "allDeclaredMethods":true
 },
 {
   "name":"java.lang.Object",
@@ -617,6 +698,13 @@
 },
 {
   "name":"java.lang.String[]"
+},
+{
+  "name":"java.lang.Thread"
+},
+{
+  "name":"java.lang.Throwable",
+  "methods":[{"name":"getSuppressed","parameterTypes":[] }]
 },
 {
   "name":"java.lang.Void",
@@ -722,6 +810,11 @@
   "name":"java.util.Date"
 },
 {
+  "name":"java.util.EventListener",
+  "allDeclaredMethods":true,
+  "allPublicMethods":true
+},
+{
   "name":"java.util.LinkedHashSet",
   "methods":[{"name":"<init>","parameterTypes":[] }]
 },
@@ -733,6 +826,11 @@
 },
 {
   "name":"java.util.concurrent.Flow$Publisher"
+},
+{
+  "name":"java.util.function.Consumer",
+  "allDeclaredMethods":true,
+  "allPublicMethods":true
 },
 {
   "name":"javax.annotation.ManagedBean"
@@ -1996,7 +2094,7 @@
   "allDeclaredConstructors":true
 },
 {
-  "name":"org.springframework.boot.autoconfigure.http.codec.CodecsAutoConfiguration$DefaultCodecsConfiguration$$Lambda$414/0x00000008403c8c40",
+  "name":"org.springframework.boot.autoconfigure.http.codec.CodecsAutoConfiguration$DefaultCodecsConfiguration$$Lambda$416/0x00000008403cfc40",
   "allDeclaredFields":true,
   "allDeclaredMethods":true
 },
@@ -2007,7 +2105,7 @@
   "allDeclaredConstructors":true
 },
 {
-  "name":"org.springframework.boot.autoconfigure.http.codec.CodecsAutoConfiguration$JacksonCodecConfiguration$$Lambda$415/0x00000008403ca040",
+  "name":"org.springframework.boot.autoconfigure.http.codec.CodecsAutoConfiguration$JacksonCodecConfiguration$$Lambda$417/0x00000008403ce040",
   "allDeclaredFields":true,
   "allDeclaredMethods":true
 },
@@ -2718,6 +2816,7 @@
 },
 {
   "name":"org.springframework.context.ApplicationListener",
+  "allDeclaredMethods":true,
   "allPublicMethods":true
 },
 {
@@ -2852,9 +2951,6 @@
   "allDeclaredMethods":true
 },
 {
-  "name":"org.springframework.core.annotation.TypeMappedAnnotation[]"
-},
-{
   "name":"org.springframework.core.convert.support.ConfigurableConversionService",
   "allPublicMethods":true
 },
@@ -2904,34 +3000,6 @@
     {"name":"addPrinter","parameterTypes":["org.springframework.format.Printer"] }, 
     {"name":"setEmbeddedValueResolver","parameterTypes":["org.springframework.util.StringValueResolver"] }
   ]
-},
-{
-  "name":"org.springframework.graalvm.extension.FieldInfo",
-  "allDeclaredMethods":true
-},
-{
-  "name":"org.springframework.graalvm.extension.InitializationInfo",
-  "allDeclaredMethods":true
-},
-{
-  "name":"org.springframework.graalvm.extension.MethodInfo",
-  "allDeclaredMethods":true
-},
-{
-  "name":"org.springframework.graalvm.extension.NativeImageHint",
-  "allDeclaredMethods":true
-},
-{
-  "name":"org.springframework.graalvm.extension.ProxyInfo",
-  "allDeclaredMethods":true
-},
-{
-  "name":"org.springframework.graalvm.extension.ResourcesInfo",
-  "allDeclaredMethods":true
-},
-{
-  "name":"org.springframework.graalvm.extension.TypeInfo",
-  "allDeclaredMethods":true
 },
 {
   "name":"org.springframework.http.HttpStatus"
@@ -3016,6 +3084,10 @@
   "allDeclaredMethods":true
 },
 {
+  "name":"org.springframework.stereotype.Service",
+  "allDeclaredMethods":true
+},
+{
   "name":"org.springframework.util.ConcurrentReferenceHashMap$Segment[]"
 },
 {
@@ -3053,7 +3125,15 @@
   ]
 },
 {
+  "name":"org.springframework.web.bind.annotation.ControllerAdvice",
+  "allDeclaredMethods":true
+},
+{
   "name":"org.springframework.web.bind.annotation.DeleteMapping",
+  "allDeclaredMethods":true
+},
+{
+  "name":"org.springframework.web.bind.annotation.ExceptionHandler",
   "allDeclaredMethods":true
 },
 {
@@ -3062,6 +3142,10 @@
 },
 {
   "name":"org.springframework.web.bind.annotation.Mapping",
+  "allDeclaredMethods":true
+},
+{
+  "name":"org.springframework.web.bind.annotation.PathVariable",
   "allDeclaredMethods":true
 },
 {
@@ -3129,7 +3213,7 @@
   "name":"org.springframework.web.reactive.accept.RequestedContentTypeResolverBuilder"
 },
 {
-  "name":"org.springframework.web.reactive.accept.RequestedContentTypeResolverBuilder$$Lambda$461/0x00000008403eb040",
+  "name":"org.springframework.web.reactive.accept.RequestedContentTypeResolverBuilder$$Lambda$460/0x00000008403f5c40",
   "allDeclaredFields":true,
   "allDeclaredMethods":true
 },
@@ -3267,6 +3351,9 @@
   "methods":[{"name":"handle","parameterTypes":[] }]
 },
 {
+  "name":"org.springframework.web.reactive.result.method.annotation.AbstractMessageReaderArgumentResolver"
+},
+{
   "name":"org.springframework.web.reactive.result.method.annotation.AbstractMessageWriterResultHandler",
   "allDeclaredFields":true,
   "allDeclaredMethods":true,
@@ -3372,7 +3459,40 @@
   "name":"reactor.core.publisher.Flux"
 },
 {
+  "name":"reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber"
+},
+{
+  "name":"reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber"
+},
+{
+  "name":"reactor.core.publisher.FluxMap$MapSubscriber"
+},
+{
+  "name":"reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber"
+},
+{
+  "name":"reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber"
+},
+{
+  "name":"reactor.core.publisher.FluxPeek$PeekSubscriber"
+},
+{
+  "name":"reactor.core.publisher.FluxSwitchIfEmpty$SwitchIfEmptySubscriber"
+},
+{
   "name":"reactor.core.publisher.Mono"
+},
+{
+  "name":"reactor.core.publisher.MonoCollect$CollectSubscriber"
+},
+{
+  "name":"reactor.core.publisher.MonoFlatMap$FlatMapMain"
+},
+{
+  "name":"reactor.core.publisher.Operators$MonoSubscriber"
+},
+{
+  "name":"reactor.netty.channel.ChannelOperations"
 },
 {
   "name":"reactor.netty.channel.ChannelOperationsHandler",
@@ -3384,10 +3504,16 @@
   ]
 },
 {
+  "name":"reactor.netty.channel.FluxReceive"
+},
+{
   "name":"reactor.netty.http.client.HttpClient"
 },
 {
   "name":"reactor.netty.http.server.HttpServer"
+},
+{
+  "name":"reactor.netty.http.server.HttpServerOperations"
 },
 {
   "name":"reactor.netty.http.server.HttpTrafficHandler",

@@ -7,14 +7,14 @@ import org.springframework.graalvm.type.AccessBits;
 
 /**
  * https://github.com/spring-projects-experimental/spring-graalvm-native/blob/master/spring-graalvm-native-feature/src/main/java/org/springframework/graalvm/extension/NativeImageHint.java
- */
+
 
 @NativeImageHint(typeInfos = {
-    @TypeInfo(
-        typeNames = {
-            "com.toomuch2learn.reactive.nativebuild.catalogue.crud.model.CatalogueItem"
-        },
-        access= AccessBits.FULL_REFLECTION)
-})
+    @TypeInfo(typeNames = {
+        "com.toomuch2learn.reactive.nativebuild.catalogue.crud.model.CatalogueItem",
+        "com.toomuch2learn.reactive.nativebuild.catalogue.crud.exception.ErrorResponse"
+    },
+    access= AccessBits.FULL_REFLECTION)
+})*/
 public class ApplicationNativeImageHint implements NativeImageConfiguration {
 }
