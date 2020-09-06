@@ -19,6 +19,7 @@
 		<start-class>
 			com.toomuch2learn.reactive.nativebuild.catalogue.crud.SpringReactiveNativeCatalogueCrudApplication
 		</start-class>
+		<io.r2dbc.version>0.8.3.RELEASE</io.r2dbc.version>
 	</properties>
 
 	<dependencies>
@@ -33,6 +34,31 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webflux</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-r2dbc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-r2dbc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.r2dbc</groupId>
+			<artifactId>r2dbc-spi</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.r2dbc</groupId>
+			<artifactId>r2dbc-pool</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.r2dbc</groupId>
+			<artifactId>r2dbc-h2</artifactId>
 		</dependency>
 
 		<dependency>
@@ -85,6 +111,11 @@
 			<name>Spring Milestones</name>
 			<url>https://repo.spring.io/milestone</url>
 		</repository>
+		<repository>
+			<id>Maven Repo</id>
+			<name>Maven Repo</name>
+			<url>https://repo1.maven.org/maven2/</url>
+		</repository>
 	</repositories>
 	<pluginRepositories>
 		<pluginRepository>
@@ -128,6 +159,7 @@
 								--initialize-at-run-time=io.netty.channel.unix.Errors
 								--initialize-at-build-time=javax.el.MapELResolver
 								--initialize-at-build-time=javax.el.ListELResolver
+								--initialize-at-build-time=sun.instrument.InstrumentationImpl
 							</buildArgs>
 						</configuration>
 						<executions>

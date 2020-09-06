@@ -7,6 +7,7 @@ import com.toomuch2learn.reactive.nativebuild.catalogue.crud.model.CatalogueItem
 import com.toomuch2learn.reactive.nativebuild.catalogue.crud.repository.CatalogueRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -32,7 +33,9 @@ public class CatalogueCrudService {
     }
 
     public Flux<CatalogueItem> getCatalogueItems() {
-        return Flux.fromIterable(CatalogueItemGenerator.generateCatalogueItemsList());
+        Sort sort = Sort.by(Sort.Direction.ASC, "name");
+
+        return catalogueRepository.findAll(sort);
     }
 
     public Mono<CatalogueItem> getCatalogueItem( String skuNumber) throws ResourceNotFoundException {

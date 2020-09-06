@@ -17,7 +17,7 @@ logging:
   level:
     root: INFO
     com.toomuch2learn: DEBUG
-    org.springframework: INFO
+    org.springframework: ERROR
     org.apache.catalina: ERROR
 
 # Display auto-configuration report when running a Spring Boot application
@@ -36,3 +36,16 @@ spring:
 
   resources:
     add-mappings: false
+
+  # Datasource Configurations
+  h2:
+    console:
+      enabled: true
+      path: /h2
+
+  # R2DBC Configuration
+  r2dbc:
+    url: r2dbc:h2:mem:///cataloguedb
+    username: sa
+    password:
+    initialization-mode: always
