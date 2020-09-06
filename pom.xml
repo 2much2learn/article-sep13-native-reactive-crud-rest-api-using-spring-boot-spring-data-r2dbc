@@ -17,8 +17,8 @@
 	<properties>
 		<java.version>11</java.version>
 		<start-class>
-			com.toomuch2learn.reactive.nativebuild.catalogue.crud.SpringReactiveNativeCatalogueCrudApplication
-		</start-class>
+            com.toomuch2learn.reactive.nativebuild.catalogue.crud.crud.SpringReactiveNativeCatalogueCrudApplication
+        </start-class>
 		<io.r2dbc.version>0.8.3.RELEASE</io.r2dbc.version>
 	</properties>
 
@@ -136,14 +136,40 @@
 
 	<profiles>
 		<profile>
-			<id>graal</id>
+			<id>native</id>
 			<build>
 				<plugins>
+					<plugin>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>make-native-image-config-folder</id>
+								<phase>test-compile</phase>
+								<configuration>
+									<target>
+										<mkdir dir="src/main/resources/META-INF/native-image"/>
+									</target>
+								</configuration>
+								<goals>
+									<goal>run</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<configuration>
+							<argLine>-Dorg.graalvm.nativeimage.imagecode=agent -Dspring.xml.ignore=true -Dspring.spel.ignore=true -agentlib:native-image-agent=access-filter-file=target/classes/access-filter.json,config-output-dir=src/main/resources/META-INF/native-image</argLine>
+						</configuration>
+					</plugin>
 					<plugin>
 						<groupId>org.graalvm.nativeimage</groupId>
 						<artifactId>native-image-maven-plugin</artifactId>
 						<version>20.2.0</version>
 						<configuration>
+							<mainClass>com.toomuch2learn.reactive.nativebuild.catalogue.crud.SpringReactiveNativeCatalogueCrudApplication</mainClass>
+							<imageName>spring-reactive-native-app</imageName>
 							<buildArgs>
 								-Dspring.native.verify=true
 								-Dspring.graal.mode=initialization-only
@@ -161,7 +187,7 @@
 								-H:+ReportExceptionStackTraces
 								--no-server
 								--initialize-at-build-time=org.reactivestreams.Publisher
-								--initialize-at-build-time=com.toomuch2learn.reactive.nativebuild.catalogue.crud.SpringReactiveNativeCatalogueCrudApplication
+								--initialize-at-build-time=com.toomuch2learn.reactive.nativebuild.catalogue.crud.crud.SpringReactiveNativeCatalogueCrudApplication
 								--initialize-at-run-time=io.netty.channel.unix.Socket
 								--initialize-at-run-time=io.netty.channel.unix.IovArray
 								--initialize-at-run-time=io.netty.channel.epoll.EpollEventLoop

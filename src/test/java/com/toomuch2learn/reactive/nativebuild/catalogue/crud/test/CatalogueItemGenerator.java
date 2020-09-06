@@ -1,4 +1,4 @@
-package com.toomuch2learn.reactive.nativebuild.catalogue.crud;
+package com.toomuch2learn.reactive.nativebuild.catalogue.crud.test;
 
 
 import com.toomuch2learn.reactive.nativebuild.catalogue.crud.model.CatalogueItem;
