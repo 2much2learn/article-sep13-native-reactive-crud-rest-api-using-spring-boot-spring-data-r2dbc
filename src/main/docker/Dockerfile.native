@@ -1,22 +1,22 @@
 ####
-# This Dockerfile is used in order to build a container that runs the Quarkus application in native (no JVM) mode
+# This Dockerfile is used in order to build a container that runs the SpringBoot application in native (no JVM) mode
 #
 # Before building the docker image run:
 #
-# mvn -Pgraal clean package
+# mvn -Pnative clean package
 #
 # Then, build the image with:
 #
-# docker build -f src/main/docker/Dockerfile.native -t 2much2learn/spring-reactive-native-catalogue-crud .
+# docker build -f src/main/docker/Dockerfile.native -t spring-reactive-native-app .
 #
 # Then run the container using:
 #
-# docker run -i --rm -p 8080:8080 2much2learn/spring-reactive-native-catalogue-crud
+# docker run -i --rm -p 8080:8080 spring-reactive-native-app
 #
 ###
 FROM registry.access.redhat.com/ubi8/ubi-minimal:8.1
 WORKDIR /work/
-COPY target/com.toomuch2learn.reactive.nativebuild.catalogue.crud.springreactivenativecataloguecrudapplication /work/application
+COPY target/spring-reactive-native-app /work/application
 
 # set up permissions for user `1001`
 RUN chmod 775 /work /work/application \

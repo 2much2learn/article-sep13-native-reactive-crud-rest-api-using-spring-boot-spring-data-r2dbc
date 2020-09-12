@@ -250,7 +250,7 @@
   "allDeclaredConstructors":true
 },
 {
-  "name":"com.toomuch2learn.reactive.nativebuild.catalogue.crud.service.FileStorageService$MockitoMock$661543558",
+  "name":"com.toomuch2learn.reactive.nativebuild.catalogue.crud.service.FileStorageService$MockitoMock$1482685076",
   "allDeclaredMethods":true,
   "methods":[
     {"name":"getMockitoInterceptor","parameterTypes":[] }, 
@@ -680,7 +680,7 @@
   ]
 },
 {
-  "name":"java.lang.ClassLoader$ByteBuddyAccessor$IRbXDSw5",
+  "name":"java.lang.ClassLoader$ByteBuddyAccessor$oYLdUCc4",
   "methods":[
     {"name":"defineClass","parameterTypes":["java.lang.ClassLoader","java.lang.String","byte[]","int","int","java.security.ProtectionDomain"] }, 
     {"name":"definePackage","parameterTypes":["java.lang.ClassLoader","java.lang.String","java.lang.String","java.lang.String","java.lang.String","java.lang.String","java.lang.String","java.lang.String","java.net.URL"] }, 
@@ -891,6 +891,15 @@
 },
 {
   "name":"java.math.BigInteger"
+},
+{
+  "name":"java.net.InetAddress",
+  "methods":[
+    {"name":"getAddress","parameterTypes":[] }, 
+    {"name":"getAllByName","parameterTypes":["java.lang.String"] }, 
+    {"name":"getHostName","parameterTypes":[] }, 
+    {"name":"getLocalHost","parameterTypes":[] }
+  ]
 },
 {
   "name":"java.net.NetPermission"

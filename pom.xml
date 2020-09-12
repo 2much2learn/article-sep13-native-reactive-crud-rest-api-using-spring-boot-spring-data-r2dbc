@@ -17,7 +17,7 @@
 	<properties>
 		<java.version>11</java.version>
 		<start-class>
-            com.toomuch2learn.reactive.nativebuild.catalogue.crud.crud.SpringReactiveNativeCatalogueCrudApplication
+            com.toomuch2learn.reactive.nativebuild.catalogue.crud.SpringReactiveNativeCatalogueCrudApplication
         </start-class>
 		<io.r2dbc.version>0.8.3.RELEASE</io.r2dbc.version>
 	</properties>
@@ -110,6 +110,41 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<image>
+						<name>spring-reactive-native-app</name>
+						<builder>paketobuildpacks/builder:tiny</builder>
+						<env>
+							<BP_BOOT_NATIVE_IMAGE>1</BP_BOOT_NATIVE_IMAGE>
+							<BP_BOOT_NATIVE_IMAGE_BUILD_ARGUMENTS>
+								--no-server
+								--no-fallback
+								--allow-incomplete-classpath
+								--report-unsupported-elements-at-runtime
+								-H:+ReportExceptionStackTraces
+								-H:+TraceClassInitialization
+								-Dspring.native.verify=true
+								-Dspring.graal.mode=initialization-only
+								-Dspring.graal.dump-config=/tmp/computed-reflect-config.json
+								-Dspring.graal.verbose=true
+								-Dspring.graal.skip-logback=true
+								--initialize-at-build-time=javax.el.MapELResolver
+								--initialize-at-build-time=javax.el.ListELResolver
+								--initialize-at-build-time=sun.instrument.InstrumentationImpl
+								--initialize-at-build-time=io.r2dbc.spi.IsolationLevel,io.r2dbc.spi
+								--initialize-at-build-time=io.r2dbc.spi.ConstantPool,io.r2dbc.spi.Assert,io.r2dbc.spi.ValidationDepth
+								--initialize-at-build-time=org.reactivestreams.Publisher
+								--initialize-at-build-time=com.toomuch2learn.reactive.nativebuild.catalogue.crud.crud.SpringReactiveNativeCatalogueCrudApplication
+								--initialize-at-build-time=org.springframework.data.r2dbc.connectionfactory
+								--initialize-at-run-time=org.springframework.data.r2dbc.connectionfactory.ConnectionFactoryUtils
+								--initialize-at-run-time=io.netty.channel.unix.Socket
+								--initialize-at-run-time=io.netty.channel.unix.IovArray
+								--initialize-at-run-time=io.netty.channel.epoll.EpollEventLoop
+								--initialize-at-run-time=io.netty.channel.unix.Errors
+							</BP_BOOT_NATIVE_IMAGE_BUILD_ARGUMENTS>
+						</env>
+					</image>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
@@ -171,30 +206,30 @@
 							<mainClass>com.toomuch2learn.reactive.nativebuild.catalogue.crud.SpringReactiveNativeCatalogueCrudApplication</mainClass>
 							<imageName>spring-reactive-native-app</imageName>
 							<buildArgs>
+								--no-server
+								--no-fallback
+								--allow-incomplete-classpath
+								--report-unsupported-elements-at-runtime
+								-H:+ReportExceptionStackTraces
+								-H:+TraceClassInitialization
 								-Dspring.native.verify=true
 								-Dspring.graal.mode=initialization-only
 								-Dspring.graal.dump-config=/tmp/computed-reflect-config.json
 								-Dspring.graal.verbose=true
 								-Dspring.graal.skip-logback=true
-								--initialize-at-run-time=org.springframework.data.r2dbc.connectionfactory.ConnectionFactoryUtils
+								--initialize-at-build-time=javax.el.MapELResolver
+								--initialize-at-build-time=javax.el.ListELResolver
+								--initialize-at-build-time=sun.instrument.InstrumentationImpl
 								--initialize-at-build-time=io.r2dbc.spi.IsolationLevel,io.r2dbc.spi
 								--initialize-at-build-time=io.r2dbc.spi.ConstantPool,io.r2dbc.spi.Assert,io.r2dbc.spi.ValidationDepth
-								--initialize-at-build-time=org.springframework.data.r2dbc.connectionfactory
-								-H:+TraceClassInitialization
-								--no-fallback
-								--allow-incomplete-classpath
-								--report-unsupported-elements-at-runtime
-								-H:+ReportExceptionStackTraces
-								--no-server
 								--initialize-at-build-time=org.reactivestreams.Publisher
 								--initialize-at-build-time=com.toomuch2learn.reactive.nativebuild.catalogue.crud.crud.SpringReactiveNativeCatalogueCrudApplication
+								--initialize-at-build-time=org.springframework.data.r2dbc.connectionfactory
+								--initialize-at-run-time=org.springframework.data.r2dbc.connectionfactory.ConnectionFactoryUtils
 								--initialize-at-run-time=io.netty.channel.unix.Socket
 								--initialize-at-run-time=io.netty.channel.unix.IovArray
 								--initialize-at-run-time=io.netty.channel.epoll.EpollEventLoop
 								--initialize-at-run-time=io.netty.channel.unix.Errors
-								--initialize-at-build-time=javax.el.MapELResolver
-								--initialize-at-build-time=javax.el.ListELResolver
-								--initialize-at-build-time=sun.instrument.InstrumentationImpl
 							</buildArgs>
 						</configuration>
 						<executions>
